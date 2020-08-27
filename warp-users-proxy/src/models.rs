@@ -18,8 +18,10 @@ pub struct User {
 /// Payload required to create a new User record
 #[derive(Deserialize, Serialize, Validate)]
 pub struct NewUserRequest {
-    #[validate(email)]
+    /// Email address
+    #[validate(email(message = "Please supply a valid email address"))]
     pub email: String,
-    #[validate(length(min = 3))]
+    /// Name of the user who is registering
+    #[validate(length(min = 3, message = "Name must be at least three characters long"))]
     pub name: String,
 }
