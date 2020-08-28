@@ -20,12 +20,6 @@ pub enum ServiceError {
 
 impl reject::Reject for ServiceError {}
 
-impl convert::From<ServiceError> for reject::Rejection {
-    fn from(e: ServiceError) -> Self {
-        reject::custom(e)
-    }
-}
-
 impl convert::From<validator::ValidationErrors> for ServiceError {
     fn from(e: validator::ValidationErrors) -> Self {
         ServiceError::Validation(e)
