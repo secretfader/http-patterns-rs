@@ -1,6 +1,6 @@
 # HTTP Experiments
 
-![Current Build Status](https://github.com/nicholaswyoung/http-experiments-rs/workflows/Test/badge.svg)
+![Continuous Integration](https://github.com/nicholaswyoung/http-experiments-rs/workflows/Continuous%20Integration/badge.svg)
 ![Security Audit Status](https://github.com/nicholaswyoung/http-experiments-rs/workflows/Security%20Audit/badge.svg)
 
 This repository contains implementations of several common HTTP tasks in async-Rust.
