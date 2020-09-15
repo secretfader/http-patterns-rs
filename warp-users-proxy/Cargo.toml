@@ -11,13 +11,13 @@ publish = false
 
 [dependencies]
 thiserror = "1.0.20"
-color-eyre = "0.5.1"
-serde = { version = "1.0.115", features = ["derive"] }
+color-eyre = "0.5.3"
+serde = { version = "1.0.116", features = ["derive"] }
 serde_json = "1.0.57"
-validator = "0.10.1"
-validator_derive = "0.10.1"
+validator = "0.11.0"
+validator_derive = "0.11.0"
 reqwest = { version = "0.10.8", features = ["json"] }
-warp = "0.2.4"
+warp = "0.2.5"
 tokio = { version = "0.2.22", features = ["rt-threaded", "macros"] }
 
 [[bin]]
