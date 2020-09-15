@@ -2,3 +2,6 @@
 members = [
   "warp-users-proxy",
 ]
+
+[patch.crates-io]
+warp = { git = "https://github.com/seanmonstar/warp", branch = "master" }
