@@ -36,7 +36,7 @@ pub async fn recover(err: Rejection) -> Result<impl Reply, std::convert::Infalli
     } else if err.find::<warp::reject::MethodNotAllowed>().is_some() {
         code = StatusCode::METHOD_NOT_ALLOWED;
         message = "HTTP method not allowed".to_string();
-    } 
+    }
 
     let json = warp::reply::json(&ErrorMessage {
         code: code.as_u16(),

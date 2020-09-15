@@ -5,7 +5,7 @@
 // file or at https://www.mozilla.org/en-US/MPL/2.0.
 
 use crate::handlers;
-use warp::{Rejection, Reply, Filter};
+use warp::{Filter, Rejection, Reply};
 
 /// Create two filters, each for `GET` and `POST` requests to the same
 /// path: `api/v1/users`
