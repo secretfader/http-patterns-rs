@@ -41,8 +41,9 @@ async fn main() -> color_eyre::Result<()> {
 
     let port = std::env::var("PORT").unwrap_or_else(|_| "8080".to_string());
     let addr = format!("127.0.0.1:{}", &port).parse::<std::net::SocketAddr>()?;
-
     let routes = filters::users().recover(handlers::recover);
+
+    tracing::info!("launching on address {}", &addr);
     warp::serve(routes).run(addr).await;
     Ok(())
 }
