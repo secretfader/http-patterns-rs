@@ -1,9 +1,9 @@
-# HTTP Experiments
+# Application Patterns in Async Rust
 
-![Continuous Integration](https://github.com/nicholaswyoung/http-experiments-rs/workflows/Continuous%20Integration/badge.svg)
-![Security Audit Status](https://github.com/nicholaswyoung/http-experiments-rs/workflows/Security%20Audit/badge.svg)
+![Continuous Integration](https://github.com/nicholaswyoung/patterns-rs/workflows/Continuous%20Integration/badge.svg)
+![Security Audit Status](https://github.com/nicholaswyoung/patterns-rs/workflows/Security%20Audit/badge.svg)
 
-This repository contains implementations of several common HTTP tasks in async-Rust.
+This repository contains implementations of several common tasks, often related to developing and scaling HTTP APIs, in async-Rust.
 
 ## Examples
 
