@@ -7,7 +7,7 @@
 pub mod users;
 
 use crate::error::ServiceError;
-use warp::{http::StatusCode, Rejection, Reply};
+use warp::{filters::body::BodyDeserializeError, http::StatusCode, Rejection, Reply};
 
 /// If a request is rejected further up the filter chain or in a
 /// handler, this function renders an appropriate client-facing error
@@ -30,7 +30,7 @@ pub async fn recover(err: Rejection) -> Result<impl Reply, std::convert::Infalli
     } else if let Some(ServiceError::InvalidPayload(e)) = err.find() {
         code = StatusCode::BAD_GATEWAY;
         message = e.to_string();
-    } else if let Some(e) = err.find::<warp::filters::body::BodyDeserializeError>() {
+    } else if let Some(e) = err.find::<BodyDeserializeError>() {
         code = StatusCode::BAD_REQUEST;
         message = e.to_string();
     } else if err.find::<warp::reject::MethodNotAllowed>().is_some() {
