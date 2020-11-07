@@ -1621,6 +1621,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "url",
+ "validator_derive",
  "validator_types",
 ]
 
@@ -1707,7 +1708,6 @@ dependencies = [
  "tokio",
  "tracing",
  "validator",
- "validator_derive",
  "warp",
 ]
 
