@@ -10,17 +10,17 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-thiserror = "1.0.22"
 color-eyre = "0.5.7"
+hyper = "0.13.9"
+listenfd = "0.3.3"
+reqwest = { version = "0.10.8", features = ["json"] }
 serde = { version = "1.0.117", features = ["derive"] }
 serde_json = "1.0.59"
-validator = { version = "0.11.0", features = ["derive"] }
-reqwest = { version = "0.10.8", features = ["json"] }
-warp = "0.2.5"
+thiserror = "1.0.22"
 tokio = { version = "0.2.22", features = ["rt-threaded", "macros"] }
 tracing = "0.1.21"
-listenfd = "0.3.3"
-hyper = "0.13.9"
+validator = { version = "0.11.0", features = ["derive"] }
+warp = "0.2.5"
 
 [[bin]]
 name = "warp-users-proxy"
