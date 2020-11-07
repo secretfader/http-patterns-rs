@@ -25,9 +25,6 @@
 //! Handlers return properly formatted responses to the client after
 //! filters have been executed.
 
-#[macro_use] // TODO: update for Rust 2018 (once crate has support)
-extern crate validator_derive;
-
 mod error;
 mod filters;
 mod handlers;

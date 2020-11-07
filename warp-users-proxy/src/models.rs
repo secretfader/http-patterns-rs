@@ -5,6 +5,7 @@
 // file or at https://www.mozilla.org/en-US/MPL/2.0.
 
 use serde::{Deserialize, Serialize};
+use validator::Validate;
 
 /// A User record, as retrieved from the data source
 #[derive(Deserialize, Serialize)]
