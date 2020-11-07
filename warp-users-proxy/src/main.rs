@@ -30,6 +30,8 @@ mod filters;
 mod handlers;
 mod models;
 
+use hyper::{service::make_service_fn, Server};
+use listenfd::ListenFd;
 use warp::Filter;
 
 #[tokio::main]
@@ -40,7 +42,17 @@ async fn main() -> color_eyre::Result<()> {
     let addr = format!("127.0.0.1:{}", &port).parse::<std::net::SocketAddr>()?;
     let routes = filters::users().recover(handlers::recover);
 
-    tracing::info!("launching on address {}", &addr);
-    warp::serve(routes).run(addr).await;
-    Ok(())
+    let svc = warp::service(routes);
+    let svc_builder = make_service_fn(|_: _| {
+        let svc = svc.clone();
+        async move { Ok::<_, std::convert::Infallible>(svc) }
+    });
+
+    let server = if let Some(fd) = ListenFd::from_env().take_tcp_listener(0)? {
+        Server::from_tcp(fd)?
+    } else {
+        Server::bind(&addr)
+    };
+
+    Ok(server.serve(svc_builder).await?)
 }
