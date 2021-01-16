@@ -30,7 +30,7 @@ mod filters;
 mod handlers;
 mod models;
 
-use hyper::{service::make_service_fn, Server};
+use hyper::{server::Server, service::make_service_fn};
 use listenfd::ListenFd;
 use warp::Filter;
 
@@ -54,5 +54,6 @@ async fn main() -> color_eyre::Result<()> {
         Server::bind(&addr)
     };
 
-    Ok(server.serve(svc_builder).await?)
+    server.serve(svc_builder).await?;
+    Ok(())
 }
