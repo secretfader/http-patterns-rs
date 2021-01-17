@@ -7,7 +7,7 @@ This repository contains implementations of several common tasks, often related 
 
 ## Examples
 
-[**Warp Users Proxy**](./warp-users-proxy) implements several HTTP endpoints that are common for REST web applications, including user account registration (including configurable input validation) and formatting data received from a remote JSON API.
+[**Warp Users Proxy**](./warp-users-proxy) implements several HTTP endpoints that are common for REST web applications, including user account registration (with configurable input validation) and formatting data received from a remote JSON API.
 
 ## License
 
