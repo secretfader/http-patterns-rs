@@ -54,6 +54,5 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Server::bind(&addr)
     };
 
-    server.serve(svc_builder).await?;
-    Ok(())
+    Ok(server.serve(svc_builder).await?)
 }
