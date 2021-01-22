@@ -19,10 +19,10 @@ pub async fn recover(err: Rejection) -> Result<impl Reply, std::convert::Infalli
 
     if err.is_not_found() {
         code = StatusCode::NOT_FOUND;
-        message = "NOT_FOUND".to_string();
+        message = "Not Found".to_string();
     } else if let Some(ServiceError::Validation(e)) = err.find() {
         code = StatusCode::UNPROCESSABLE_ENTITY;
-        message = "Validation failed".to_string();
+        message = "Validation Failed".to_string();
         context = Some(e.errors().to_owned());
     } else if let Some(ServiceError::External(e)) = err.find() {
         code = StatusCode::SERVICE_UNAVAILABLE;
@@ -35,7 +35,7 @@ pub async fn recover(err: Rejection) -> Result<impl Reply, std::convert::Infalli
         message = e.to_string();
     } else if err.find::<warp::reject::MethodNotAllowed>().is_some() {
         code = StatusCode::METHOD_NOT_ALLOWED;
-        message = "HTTP method not allowed".to_string();
+        message = "HTTP Method Not Allowed".to_string();
     }
 
     let json = warp::reply::json(&ErrorMessage {
